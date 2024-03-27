@@ -1,7 +1,7 @@
 namespace Auth0.ManagementApi.Clients
 {
   using System.Collections.Generic;
-  using System.Threading;
+    using System.Threading;
   using System.Threading.Tasks;
   using Auth0.ManagementApi.Models.Users;
   using Models;
@@ -267,5 +267,13 @@ namespace Auth0.ManagementApi.Clients
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <returns>A <see cref="Task"/> that represents the asynchronous delete operation.</returns>
     Task DeleteAuthenticationMethodAsync(string userId, string authenticationMethodId, CancellationToken cancellationToken = default);
-  }
+
+    /// <summary>
+    /// Delete all sessions for a user.
+    /// </summary>
+    /// <param name="userId">The ID of the user for which you want to delete the sessions</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <returns>A <see cref="Task"/> that represents the asynchronous delete operation.</returns>
+        Task DeleteSessionsForUserAsync(string userId, CancellationToken cancellationToken = default);
+    }
 }

@@ -471,5 +471,16 @@ namespace Auth0.ManagementApi.Clients
         {
             return Connection.SendAsync<object>(HttpMethod.Delete, BuildUri($"users/{EncodePath(userId)}/authentication-methods/{EncodePath(authenticationMethodId)}"), null, DefaultHeaders, cancellationToken: cancellationToken);
         }
+
+        /// <summary>
+        /// Delete all sessions for a user.
+        /// </summary>
+        /// <param name="userId">The ID of the user for which you want to delete the sessions</param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous delete operation.</returns>
+        public Task DeleteSessionsForUserAsync(string userId, CancellationToken cancellationToken = default)
+        {
+            return Connection.SendAsync<object>(HttpMethod.Delete, BuildUri($"users/{EncodePath(userId)}/sessions"), null, DefaultHeaders, cancellationToken: cancellationToken);
+        }
     }
 }
